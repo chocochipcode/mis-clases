@@ -1,0 +1,772 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef1f4;
+    color: #1f2933;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   APLICACIÓN
+   ========================================= */
+
+.app {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.header {
+    background: #17212b;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 26px 30px;
+    border-radius: 12px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header h1 {
+    background: none;
+    color: white;
+
+    padding: 0;
+
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.header p {
+    padding: 6px 0 0 0;
+
+    color: #aeb8c2;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   BARRA DE NAVEGACIÓN
+   ========================================= */
+
+.navigation {
+    display: flex;
+
+    background: white;
+
+    border: 1px solid #dce1e6;
+    border-radius: 10px;
+
+    padding: 5px;
+
+    margin-bottom: 24px;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+}
+
+.nav-button {
+    flex: 1;
+
+    background: transparent;
+
+    color: #68737d;
+
+    padding: 12px 18px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.nav-button:hover {
+    background: #eef1f4;
+    color: #26323d;
+}
+
+.nav-button.active {
+    background: #17212b;
+    color: white;
+}
+
+
+/* =========================================
+   BOTONES
+   ========================================= */
+
+button {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
+}
+
+.add-button,
+.primary-button,
+.save-button {
+    background: #3b82a0;
+    color: white;
+
+    border-radius: 7px;
+
+    padding: 11px 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.add-button:hover,
+.primary-button:hover,
+.save-button:hover {
+    background: #32738f;
+}
+
+.add-button:active,
+.primary-button:active,
+.save-button:active {
+    transform: translateY(1px);
+}
+
+.small-button {
+    background: #3b82a0;
+    color: white;
+
+    border-radius: 7px;
+
+    padding: 9px 14px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.small-button:hover {
+    background: #32738f;
+}
+
+
+/* =========================================
+   PÁGINAS
+   ========================================= */
+
+.page {
+    display: none;
+}
+
+.page.active-page {
+    display: block;
+}
+
+
+/* =========================================
+   RESUMEN
+   ========================================= */
+
+.summary {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.card {
+    background: white;
+
+    border: 1px solid #dce1e6;
+    border-radius: 10px;
+
+    padding: 22px;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+
+    border-left: 4px solid #3b82a0;
+}
+
+.card-title {
+    display: block;
+
+    color: #697580;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    margin-bottom: 8px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.card strong {
+    font-size: 25px;
+    font-weight: 600;
+
+    color: #17212b;
+}
+
+
+/* =========================================
+   SECCIONES
+   ========================================= */
+
+.section {
+    background: white;
+
+    border: 1px solid #dce1e6;
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.04);
+}
+
+.section-header {
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #e4e7ea;
+
+    background: #fafbfc;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #26323d;
+}
+
+.section-header p {
+    padding: 5px 0 0 0;
+
+    font-size: 13px;
+
+    color: #78838d;
+}
+
+
+/* =========================================
+   ESTADO VACÍO
+   ========================================= */
+
+.empty-state {
+    text-align: center;
+
+    padding: 48px 20px;
+}
+
+.empty-state h3 {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: #36424d;
+}
+
+.empty-state p {
+    padding: 0;
+
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    line-height: 1.5;
+
+    font-size: 14px;
+
+    color: #7b858e;
+}
+
+.primary-button {
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   LISTA DE ALUMNOS
+   ========================================= */
+
+.student-list {
+    width: 100%;
+}
+
+.student-item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 24px;
+
+    border-bottom: 1px solid #e8ebee;
+}
+
+.student-item:last-child {
+    border-bottom: none;
+}
+
+.student-name {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #29343d;
+}
+
+.student-status {
+    font-size: 13px;
+    font-weight: 700;
+
+    padding: 6px 10px;
+
+    border-radius: 5px;
+}
+
+.student-status.unpaid {
+    color: #b42318;
+    background: #fef0ef;
+}
+
+.student-status.paid {
+    color: #18794e;
+    background: #edf8f2;
+}
+
+
+/* =========================================
+   INFORMACIÓN DE LA CLASE
+   ========================================= */
+
+.class-info {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 24px;
+}
+
+.class-time {
+    font-size: 28px;
+    font-weight: 600;
+
+    color: #17212b;
+}
+
+.class-label {
+    display: block;
+
+    color: #78838d;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    margin-bottom: 5px;
+}
+
+.class-info strong {
+    font-size: 18px;
+
+    color: #26323d;
+}
+
+
+/* =========================================
+   PÁGINA DE CLASES
+   ========================================= */
+
+.class-page {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: #e2e6e9;
+}
+
+.class-main {
+    background: white;
+
+    padding: 28px 24px;
+}
+
+.class-main strong {
+    font-size: 19px;
+
+    color: #26323d;
+}
+
+
+/* =========================================
+   VENTANA MODAL
+   ========================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 100;
+
+    inset: 0;
+
+    background: rgba(15, 23, 30, 0.55);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 480px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CABECERA DEL MODAL
+   ========================================= */
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #e3e6e8;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+
+    color: #26323d;
+}
+
+.modal-header p {
+    padding: 5px 0 0 0;
+
+    color: #78838d;
+
+    font-size: 13px;
+}
+
+.close-button {
+    background: transparent;
+
+    color: #68737d;
+
+    font-size: 27px;
+
+    line-height: 20px;
+
+    padding: 2px 5px;
+}
+
+.close-button:hover {
+    color: #17212b;
+}
+
+
+/* =========================================
+   FORMULARIO
+   ========================================= */
+
+#studentForm {
+    padding: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #36424d;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+
+    border: 1px solid #cdd3d8;
+
+    border-radius: 7px;
+
+    padding: 11px 12px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: #26323d;
+
+    outline: none;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #3b82a0;
+
+    box-shadow: 0 0 0 3px rgba(59, 130, 160, 0.12);
+}
+
+
+/* =========================================
+   MENSUALIDAD
+   ========================================= */
+
+.monthly-fee {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: #f3f5f7;
+
+    border: 1px solid #e0e4e7;
+
+    border-radius: 7px;
+
+    padding: 14px;
+
+    margin-bottom: 20px;
+}
+
+.monthly-fee span {
+    font-size: 13px;
+
+    color: #68737d;
+}
+
+.monthly-fee strong {
+    font-size: 17px;
+
+    color: #17212b;
+}
+
+
+/* =========================================
+   OPCIONES DE PAGO
+   ========================================= */
+
+.payment-options {
+    display: flex;
+
+    gap: 10px;
+}
+
+.payment-option {
+    flex: 1;
+
+    border: 1px solid #d5dadd;
+
+    border-radius: 7px;
+
+    padding: 11px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: #596570;
+}
+
+.payment-option:has(input:checked) {
+    border-color: #3b82a0;
+
+    background: #edf5f8;
+
+    color: #285d73;
+}
+
+.payment-option input {
+    margin-right: 6px;
+}
+
+
+/* =========================================
+   BOTONES DEL MODAL
+   ========================================= */
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding-top: 5px;
+}
+
+.cancel-button {
+    background: #eef0f2;
+
+    color: #4f5a63;
+
+    border-radius: 7px;
+
+    padding: 11px 17px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.cancel-button:hover {
+    background: #e3e6e8;
+}
+
+
+/* =========================================
+   TELÉFONOS Y TABLETS
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .app {
+        padding: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+        padding: 22px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+
+    .navigation {
+        position: sticky;
+
+        top: 10px;
+
+        z-index: 10;
+    }
+
+    .nav-button {
+        padding: 11px 5px;
+
+        font-size: 13px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .section-header {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+    .student-item {
+        padding: 15px 18px;
+    }
+
+    .class-info {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 22px;
+    }
+
+    .class-time {
+        font-size: 25px;
+    }
+
+    .class-page {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        padding: 15px;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+
+}
