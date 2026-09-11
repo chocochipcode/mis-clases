@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis Clases</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- =========================================
+             ENCABEZADO
+             ========================================= -->
+
+        <header class="header">
+
+            <div>
+                <h1>Mis Clases</h1>
+                <p>Organizador de alumnos y pagos</p>
+            </div>
+
+            <div style="display:flex; gap:10px; align-items:center;">
+
+                <button
+                    class="add-button"
+                    id="adminButton"
+                >
+                    Administrar
+                </button>
+
+                <button
+                    class="add-button"
+                    id="openStudentButton"
+                    style="display:none;"
+                >
+                    + Agregar alumno
+                </button>
+
+                <button
+                    class="cancel-button"
+                    id="logoutButton"
+                    style="display:none;"
+                >
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             NAVEGACIÓN
+             ========================================= -->
+
+        <nav class="navigation">
+
+            <button class="nav-button active" data-section="inicio">
+                Inicio
+            </button>
+
+            <button class="nav-button" data-section="alumnos">
+                Alumnos
+            </button>
+
+            <button class="nav-button" data-section="clases">
+                Clases
+            </button>
+
+            <button class="nav-button" data-section="pagos">
+                Pagos
+            </button>
+
+        </nav>
+
+
+        <!-- =========================================
+             INICIO
+             ========================================= -->
+
+        <main id="inicio" class="page active-page">
+
+            <section class="summary">
+
+                <div class="card">
+
+                    <div>
+                        <span class="card-title">Alumnos</span>
+                        <strong id="totalStudents">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div>
+                        <span class="card-title">Clase</span>
+                        <strong>08:00 - 09:00</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div>
+                        <span class="card-title">Todavía no pagó</span>
+                        <strong id="unpaidCount">0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TODAVÍA NO PAGÓ -->
+
+            <section class="section unpaid-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Todavía no pagó</h2>
+
+                        <p>
+                            Alumnos que tienen pendiente la mensualidad
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div id="unpaidList" class="student-list">
+
+                    <div class="empty-state">
+
+                        <h3>No hay pagos pendientes</h3>
+
+                        <p>
+                            Cuando un alumno no haya pagado,
+                            aparecerá aquí.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CLASE -->
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Clase</h2>
+
+                        <p>
+                            Todos los alumnos toman la clase juntos
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="class-info">
+
+                    <div class="class-time">
+                        08:00 — 09:00
+                    </div>
+
+                    <div>
+
+                        <span class="class-label">
+                            Alumnos inscriptos
+                        </span>
+
+                        <strong id="classStudentCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================================
+             ALUMNOS
+             ========================================= -->
+
+        <main id="alumnos" class="page">
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Alumnos</h2>
+
+                        <p>
+                            Lista de alumnos
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="small-button"
+                        id="openStudentButton2"
+                        style="display:none;"
+                    >
+                        + Agregar alumno
+                    </button>
+
+                </div>
+
+
+                <div id="studentList" class="student-list">
+
+                    <div class="empty-state">
+
+                        <h3>Todavía no tienes alumnos</h3>
+
+                        <p>
+                            Agrega tu primer alumno para comenzar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================================
+             CLASES
+             ========================================= -->
+
+        <main id="clases" class="page">
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Clases</h2>
+
+                        <p>
+                            Información de la clase grupal
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="class-page">
+
+                    <div class="class-main">
+
+                        <span class="class-label">
+                            Horario
+                        </span>
+
+                        <strong>
+                            08:00 — 09:00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="class-main">
+
+                        <span class="class-label">
+                            Modalidad
+                        </span>
+
+                        <strong>
+                            Clase grupal
+                        </strong>
+
+                    </div>
+
+
+                    <div class="class-main">
+
+                        <span class="class-label">
+                            Mensualidad
+                        </span>
+
+                        <strong>
+                            $39.000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================================
+             PAGOS
+             ========================================= -->
+
+        <main id="pagos" class="page">
+
+            <section class="section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Pagos</h2>
+
+                        <p>
+                            Control de mensualidades
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="small-button"
+                        id="newMonthButton"
+                        style="display:none;"
+                    >
+                        Nuevo mes
+                    </button>
+
+                </div>
+
+
+                <div id="paymentList" class="student-list">
+
+                    <div class="empty-state">
+
+                        <h3>No hay alumnos registrados</h3>
+
+                        <p>
+                            Los pagos aparecerán aquí
+                            cuando agregues alumnos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         MODAL AGREGAR ALUMNO
+         ========================================= -->
+
+    <div id="studentModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>Nuevo alumno</h2>
+
+                    <p>
+                        Ingresa los datos del alumno
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-button"
+                    id="closeStudentButton"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="studentForm">
+
+                <div class="form-group">
+
+                    <label for="firstName">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Nombre"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="lastName">
+                        Apellido
+                    </label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Apellido"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="monthly-fee">
+
+                    <span>
+                        Mensualidad
+                    </span>
+
+                    <strong>
+                        $39.000
+                    </strong>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        ¿Pagó este mes?
+                    </label>
+
+
+                    <div class="payment-options">
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="no"
+                                checked
+                            >
+
+                            <span>
+                                No pagó
+                            </span>
+
+                        </label>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="si"
+                            >
+
+                            <span>
+                                Pagó
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelStudentButton"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Guardar alumno
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         MODAL DE ADMINISTRACIÓN
+         ========================================= -->
+
+    <div id="adminModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>Administración</h2>
+
+                    <p>
+                        Ingresá para administrar alumnos y pagos.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="close-button"
+                    id="closeAdminButton"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="adminLoginForm">
+
+                <div class="form-group">
+
+                    <label for="adminEmail">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        placeholder="Correo electrónico"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="adminPassword">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="Contraseña"
+                        required
+                    >
+
+                </div>
+
+
+                <p
+                    id="loginError"
+                    style="
+                        display:none;
+                        color:#b42318;
+                        font-size:13px;
+                        margin-bottom:15px;
+                    "
+                ></p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelAdminButton"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Iniciar sesión
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- NUESTRA APLICACIÓN -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
